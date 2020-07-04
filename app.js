@@ -6,10 +6,12 @@ const blogController = require("./controllers/blogController");
 const app = express();
 
 //connect to mongodb
-const dbURI =
-  "mongodb://localhost:27017/express-tutorial?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false";
+
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 //listening for requests only after we have the connection to the database
