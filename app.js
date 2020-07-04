@@ -6,13 +6,12 @@ const blogController = require("./controllers/blogController");
 const app = express();
 
 //connect to mongodb
-
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(process.env.PORT))
   .catch((err) => console.log(err));
 //listening for requests only after we have the connection to the database
 
