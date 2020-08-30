@@ -2,19 +2,24 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
   <body>
-    <h1>Blog Home page</h1>
     <%- include('./partials/nav.ejs') %>
+    <header>
+      <h1>Home page</h1>
+    </header>
+
     <main>
-      <h2>All blogs</h2>
-      <% if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
-      <a href="/blogs/<%= blog._id %>">
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
+      <h2>All recipes</h2>
+      <% if (recipes.length > 0) { %> <% recipes.forEach(recipe => { %>
+      <a href="/recipes/<%= recipe._id %>">
+        <h3 class="title"><%= recipe.title %></h3>
+        <p class="snippet"><%= recipe.snippet %></p>
       </a>
       <% }) %> <% } else { %>
 
-      <p>there are no blogs to display</p>
+      <p>there are no recipes to display</p>
       <% } %>
     </main>
+
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

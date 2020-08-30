@@ -2,18 +2,23 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
   <body>
-    <h1>Create Blog post</h1>
     <%- include('./partials/nav.ejs') %>
+
+    <header>
+      <h1>Add a new recipe</h1>
+    </header>
     <main>
-      <form action="/blogs" method="POST">
-        <label for="blog-title">Blog Title</label>
-        <input type="text" name="title" id="blog-title" required />
-        <label for="blog-snippet">Blog Snippet</label>
-        <input type="text" name="snippet" id="blog-snippet" required />
-        <label for="blog-body">Blog Body</label>
-        <textarea name="body" id="blog-body" required></textarea>
+      <form action="/recipes" method="POST">
+        <label for="recipe-title">Recipe Title</label>
+        <input type="text" name="title" id="recipe-title" required />
+        <label for="recipe-snippet">Recipe Snippet</label>
+        <input type="text" name="snippet" id="recipe-snippet" required />
+        <label for="recipe-body">Recipe Body</label>
+        <textarea name="body" id="recipe-body" required></textarea>
         <button>Submit</button>
       </form>
     </main>
+
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
