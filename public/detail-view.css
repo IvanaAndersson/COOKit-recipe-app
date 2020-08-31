@@ -1,0 +1,31 @@
+.recipe-detail {
+  width: 95%;
+  height: 80vh;
+  margin: 2rem auto 0 auto;
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 0 1rem rgba(20, 20, 20, 0.3);
+}
+
+.recipe-picture {
+  flex-basis: 40%;
+}
+
+.recipe-picture img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe-instructions {
+  padding: 2rem;
+}
+
+.recipe-title {
+  font-size: 3rem;
+}
+
+.delete {
+  display: block;
+  width: 50px;
+}
