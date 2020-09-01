@@ -18,7 +18,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((result) => app.listen(port))
-  .catch((err) => console.log(err));
+  .catch((err) => console.error(err));
 
 //register view engine
 app.set("view engine", "ejs");

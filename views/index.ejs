@@ -3,21 +3,30 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <!-- <header>
-      <h1>Home page</h1>
-    </header> -->
+    <header>
+      <h1>All recipes</h1>
+    </header>
 
     <main>
-      <h2>All recipes</h2>
-      <% if (recipes.length > 0) { %> <% recipes.forEach(recipe => { %>
-      <a href="/recipes/<%= recipe._id %>">
-        <h3 class="title"><%= recipe.title %></h3>
-        <p class="snippet"><%= recipe.snippet %></p>
-      </a>
-      <% }) %> <% } else { %>
+      <div class="recipes-grid">
+        <% if (recipes.length > 0) { %> <% recipes.forEach(recipe => { %>
+        <a href="/recipes/<%= recipe._id %>" class="recipe-card">
+          <div class="img-container">
+            <img
+              src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=631&q=80"
+              alt=""
+            />
+          </div>
+          <div class="recipe-card-info">
+            <h3 class="title"><%= recipe.title %></h3>
+            <p class="snippet"><%= recipe.snippet %></p>
+          </div>
+        </a>
+        <% }) %> <% } else { %>
 
-      <p class="no-recipes">There are no recipes to display</p>
-      <% } %>
+        <p class="no-recipes">There are no recipes to display</p>
+        <% } %>
+      </div>
     </main>
 
     <%- include('./partials/footer.ejs') %>
