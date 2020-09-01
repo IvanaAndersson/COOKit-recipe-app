@@ -1,7 +1,5 @@
 const Recipe = require("../models/recipe");
 
-// blog_index, blog_details, blog_create_get, blog_create_post, blog_delete
-
 const recipe_index = (req, res) => {
   Recipe.find()
     .sort({ createdAt: -1 })
