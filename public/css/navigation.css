@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: rgb(202, 92, 41);
+  background: var(--color-details);
 }
 
 .nav-bar a {
@@ -42,5 +42,6 @@
 }
 
 .navigation li {
+  text-transform: uppercase;
   margin-left: 2rem;
 }
