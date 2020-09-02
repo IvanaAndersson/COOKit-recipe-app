@@ -15,9 +15,25 @@ const recipeSchema = new Schema(
       type: String,
       required: true,
     },
+    picture: {
+      type: Buffer,
+      required: true,
+    },
+    pictureType: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
+
+recipeSchema.virtual("picturePath").get(function () {
+  if (this.picture != null && this.pictureType != null) {
+    return `data:${
+      this.pictureType
+    };charset=utf-8;base64,${this.picture.toString("base64")}`;
+  }
+});
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
 

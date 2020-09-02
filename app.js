@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const recipeController = require("./controllers/recipeController");
 
 //setting up express app
@@ -25,7 +26,9 @@ app.set("view engine", "ejs");
 
 //middleware and static files;
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
+// app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.redirect("/recipes");
