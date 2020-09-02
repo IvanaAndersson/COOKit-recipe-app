@@ -1,0 +1,86 @@
+form {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 1rem;
+  grid-template-areas:
+    "title picture"
+    "snippet picture"
+    "body body"
+    "button .";
+}
+
+input,
+textarea {
+  font-family: "Open Sans", sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0);
+  outline: none;
+  padding: 1rem 0.75rem;
+  margin-bottom: 1rem;
+  background-color: #eee;
+  border-radius: 0.25rem;
+  transition: border 0.15s ease-in;
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid var(--color-inactive-text);
+}
+.create-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: var(--box-shadow-default);
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-div label {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.form-title {
+  grid-area: title;
+}
+.form-snippet {
+  grid-area: snippet;
+}
+.form-body {
+  grid-area: body;
+}
+.form-file {
+  grid-area: picture;
+}
+
+.filepond--root {
+  min-height: 10em;
+}
+
+.submit-button {
+  grid-area: button;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  transition: background 0.15s ease-in;
+  align-self: center;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background: var(--color-inactive-text);
+}

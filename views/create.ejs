@@ -2,25 +2,40 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
   <body>
-    <div class="wrapper">
-      <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/nav.ejs') %>
 
-      <header>
-        <h1>Add a new recipe</h1>
-      </header>
-      <main class="create-form">
-        <form action="/recipes" method="POST">
+    <header>
+      <h1>Add a new recipe</h1>
+    </header>
+    <main class="create-form">
+      <form action="/recipes" method="POST">
+        <div class="form-div form-title">
           <label for="recipe-title">Recipe Title</label>
           <input type="text" name="title" id="recipe-title" required />
+        </div>
+        <div class="form-div form-snippet">
           <label for="recipe-snippet">Recipe Snippet</label>
           <input type="text" name="snippet" id="recipe-snippet" required />
-          <label for="recipe-body">Recipe Body</label>
-          <textarea name="body" id="recipe-body" required></textarea>
-          <input type="file" name="image" id="recipe-img" class="filepond" />
-          <button>Submit</button>
-        </form>
-      </main>
-      <%- include('./partials/footer.ejs') %>
-    </div>
+        </div>
+        <div class="form-div form-body">
+          <label for="recipe-body">Recipe Instructions</label>
+          <textarea
+            name="body"
+            id="recipe-body"
+            rows="6"
+            cols="33"
+            required
+          ></textarea>
+        </div>
+        <div class="form-div form-file">
+          <label for="recipe-picture">Picture</label>
+          <!-- We'll transform this input into a pond -->
+          <input type="file" class="filepond" id="recipe-picture" />
+        </div>
+
+        <button class="submit-button">Submit</button>
+      </form>
+    </main>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
