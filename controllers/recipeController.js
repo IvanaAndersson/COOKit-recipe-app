@@ -25,32 +25,25 @@ const recipe_create_get = (req, res) => {
 };
 
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"];
-function savePicture(recipe, pictureEncoded) {
+
+const savePicture = (recipe, pictureEncoded) => {
   if (pictureEncoded === null) return;
   const picture = JSON.parse(pictureEncoded);
   if (picture != null && imageMimeTypes.includes(picture.type)) {
     recipe.picture = new Buffer.from(picture.data, "base64");
     recipe.pictureType = picture.type;
   }
-}
+};
 
-const recipe_create_post = async (req, res) => {
+const recipe_create_post = (req, res) => {
   const recipe = new Recipe(req.body);
   savePicture(recipe, req.body.cover);
-
-  try {
-    const newRecipe = await recipe.save();
-    res.redirect("/recipes");
-  } catch (err) {
-    console.error(err);
-  }
-
-  // recipe
-  //   .save()
-  //   .then((result) => {
-  //     res.redirect("/recipes");
-  //   })
-  //   .catch((err) => console.error(err));
+  recipe
+    .save()
+    .then((result) => {
+      res.redirect("/recipes");
+    })
+    .catch((err) => console.error(err));
 };
 
 const recipe_delete = (req, res) => {
