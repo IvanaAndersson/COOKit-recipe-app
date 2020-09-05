@@ -138,6 +138,7 @@ footer,
 .img-container,
 .recipe-card-info {
   box-shadow: var(--box-shadow-default);
+  transition: box-shadow 0.3s ease-in;
 }
 
 .img-container:before {
@@ -153,9 +154,17 @@ footer,
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s ease-in;
 }
 
+.recipe-card:hover img {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+.recipe-card:hover .img-container,
+.recipe-card:hover .recipe-card-info {
+  box-shadow: 10px 10px 1.5rem rgba(51, 51, 51, 0.25);
+}
 .recipe-card-info {
   text-align: center;
   padding: 0.5rem 0;

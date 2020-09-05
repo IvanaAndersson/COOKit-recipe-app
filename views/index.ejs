@@ -8,9 +8,8 @@
     </header>
 
     <main>
-      <% if (recipes.length > 0) { %>
-      <div class="recipes-grid">
-        <% recipes.forEach(recipe => { %>
+      <div id="main-page-container">
+        <% if (recipes.length > 0) { %> <% recipes.forEach(recipe => { %>
         <a href="/recipes/<%= recipe._id %>" class="recipe-card">
           <section class="img-container">
             <img src="<%= recipe.picturePath %>" alt="" />
@@ -20,10 +19,10 @@
             <p class="snippet"><%= recipe.snippet %></p>
           </section>
         </a>
+        <% }) %> <% } else { %>
+        <p class="no-recipes">There are no recipes to display</p>
+        <% } %>
       </div>
-      <% }) %> <% } else { %>
-      <p class="no-recipes">There are no recipes to display</p>
-      <% } %>
     </main>
 
     <%- include('./partials/footer.ejs') %>
