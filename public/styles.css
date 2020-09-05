@@ -53,6 +53,7 @@ header {
 footer {
   color: var(--color-inactive-text);
   margin-top: auto;
+  padding-top: 1rem;
 }
 
 header,
