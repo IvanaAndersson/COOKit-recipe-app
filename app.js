@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.redirect("/recipes");
 });
 app.get("/about", (req, res) => {
-  res.render("about", { title: "About" });
+  res.render("about", { title: "About the app" });
 });
 
 app.get("/recipes", recipeController.recipe_index);
@@ -48,5 +48,5 @@ app.get("/recipes/:id", recipeController.recipe_details);
 app.delete("/recipes/:id", recipeController.recipe_delete);
 
 app.use((req, res) => {
-  res.status(404).render("404", { title: "404" });
+  res.status(404).render("404", { title: "404: Page not found" });
 });

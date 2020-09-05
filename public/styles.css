@@ -5,6 +5,7 @@
 # GENERAL STYLES
 # NAVIGATION
 # MAIN PAGE STYLES
+# ABOUT PAGE STYLES
 # NEW RECIPE STYLES
 # DETAIL VIEW STYLES
 # 404 PAGE
@@ -200,6 +201,21 @@ footer,
   height: 1px;
   background: var(--color-inactive-text);
   margin: 1rem auto;
+}
+
+/* ABOUT PAGE STYLES */
+
+.main-about {
+  padding: 3rem;
+}
+
+.main-about h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main-about p {
+  margin-bottom: 2rem;
 }
 
 /* CREATE NEW RECIPE STYLES */
