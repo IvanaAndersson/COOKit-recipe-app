@@ -14,7 +14,7 @@
 /* VARIABLES */
 :root {
   --bg-color-body: #eeeeee;
-  --color-inactive-text: rgba(20, 20, 20, 0.4);
+  --color-inactive-text: rgba(20, 20, 20, 0.3);
   --color-details: rgb(216, 67, 21);
   --box-shadow-default: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25);
   --border-radius: 0.75rem;
@@ -152,7 +152,8 @@ footer,
 .recipe-card img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -172,7 +173,7 @@ footer,
   padding: 0.5rem 0;
   margin: 0 auto;
   background-color: #fff;
-  width: 85%;
+  width: 95%;
   position: relative;
   top: -1rem;
   z-index: 10;
@@ -320,7 +321,6 @@ textarea:focus {
 }
 
 .recipe-picture {
-  flex-basis: 40%;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   overflow: hidden;
@@ -335,6 +335,8 @@ textarea:focus {
 .recipe-instructions {
   flex-grow: 1;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-title {
@@ -343,9 +345,23 @@ textarea:focus {
   font-family: "Merriweather", serif;
 }
 
+.recipe-snippet {
+  font-size: 1.2rem;
+  font-family: "Merriweather", serif;
+  color: rgba(20, 20, 20, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.recipe-instructions p {
+  margin-bottom: 0.75rem;
+}
+
 .delete {
   display: block;
   width: 25px;
+  color: rgba(20, 20, 20, 0.5);
+  margin-top: auto;
+  align-self: flex-end;
 }
 
 /* 404 PAGE STYLES */

@@ -9,6 +9,7 @@
       </section>
       <section class="recipe-instructions">
         <h2 class="recipe-title"><%= recipe.title %></h2>
+        <h6 class="recipe-snippet"><%= recipe.snippet %></h6>
         <div class="content">
           <% recipe.instructions.forEach(r => { %>
           <p><%= r %></p>
