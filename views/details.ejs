@@ -10,7 +10,9 @@
       <section class="recipe-instructions">
         <h2 class="recipe-title"><%= recipe.title %></h2>
         <div class="content">
-          <p><%= recipe.body %></p>
+          <% recipe.instructions.forEach(r => { %>
+          <p><%= r %></p>
+          <% }) %>
         </div>
         <a class="delete" data-doc="<%= recipe.id %>">
           <span class="d-none">Delete this recipe</span>

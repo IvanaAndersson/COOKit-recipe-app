@@ -36,7 +36,8 @@ const savePicture = (recipe, pictureEncoded) => {
 };
 
 const recipe_create_post = (req, res) => {
-  const recipe = new Recipe(req.body);
+  const instructions = req.body.body.split("\r\n");
+  const recipe = new Recipe({ ...req.body, instructions });
   savePicture(recipe, req.body.cover);
   recipe
     .save()

@@ -11,8 +11,8 @@ const recipeSchema = new Schema(
       type: String,
       required: true,
     },
-    body: {
-      type: String,
+    instructions: {
+      type: [String],
       required: true,
     },
     picture: {
