@@ -1,10 +1,20 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+//REQUIRE FUNCTIONALITY
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const recipeController = require("./controllers/recipeController");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
 
 //setting up express app
 const app = express();
+
+// REQUIRE MODELS
+const recipeController = require("./controllers/recipeController");
+const authenticationController = require("./controllers/authenticationController");
 
 const dbURI =
   process.env.MONGODB_URI ||
@@ -27,8 +37,17 @@ app.set("view engine", "ejs");
 //middleware and static files;
 app.use(express.static("public"));
 app.use(express.json());
-app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: "10mb", extended: false }));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get("/", (req, res) => {
   res.redirect("/recipes");
@@ -46,6 +65,14 @@ app.get("/recipes/create", recipeController.recipe_create_get);
 app.get("/recipes/:id", recipeController.recipe_details);
 
 app.delete("/recipes/:id", recipeController.recipe_delete);
+
+//LOGIN AND REGISTER ROUTES
+
+app.get("/login", authenticationController.login_get);
+app.post("/login", authenticationController.login_post);
+
+app.get("/register", authenticationController.register_get);
+app.post("/register", authenticationController.register_post);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "404: Page not found" });

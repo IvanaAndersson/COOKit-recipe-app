@@ -255,7 +255,9 @@ input:focus,
 textarea:focus {
   border: 1px solid var(--color-inactive-text);
 }
-.create-form {
+.create-form,
+.login-form,
+.register-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,6 +364,7 @@ textarea:focus {
   color: rgba(20, 20, 20, 0.5);
   margin-top: auto;
   align-self: flex-end;
+  cursor: pointer;
 }
 
 /* 404 PAGE STYLES */
