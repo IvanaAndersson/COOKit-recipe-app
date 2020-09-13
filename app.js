@@ -7,7 +7,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("express-flash");
-const session = require("express-session");
+const session = require("cookie-session");
 
 //setting up express app
 const app = express();
@@ -41,7 +41,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(flash());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "session-secret",
     resave: false,
     saveUninitialized: false,
   })
